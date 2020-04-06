@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>bwang的博客</title>
   <icon>https://www.gravatar.com/avatar/f08443801db2ac448372f818fe94da1d</icon>
-  <subtitle>面朝大海，春暖花开</subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
