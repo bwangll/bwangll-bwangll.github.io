@@ -721,7 +721,7 @@ if(parent!=null){
       </tags>
   </entry>
   <entry>
-    <title>红黑树深入剖析及Java实现</title>
+    <title>Map入门</title>
     <url>/2020/04/06/%E8%AF%BE%E7%A8%8BMap/</url>
     <content><![CDATA[<h1 id="Map集合"><a href="#Map集合" class="headerlink" title="Map集合"></a>Map集合</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><p>现实生活中，我们常会看到这样的一种集合：IP地址与主机名，身份证号与个人，系统用户名与系统用户对象等，这种一一对应的关系，就叫做映射。Java提供了专门的集合类用来存放这种对象关系的对象，即<code>java.util.Map</code>接口。</p>
 <p>我们通过查看<code>Map</code>接口描述，发现<code>Map</code>接口下的集合与<code>Collection</code>接口下的集合，它们存储数据的形式不同，如下图。</p>
