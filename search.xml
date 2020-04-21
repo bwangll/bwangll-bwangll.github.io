@@ -224,6 +224,9 @@ public interface Cloneable {
     <title>MySQL索引</title>
     <url>/2020/04/17/MySQL%E7%B4%A2%E5%BC%95/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
   </entry>
   <entry>
     <title>String和StringBuffer、StringBuilder</title>

@@ -69,12 +69,14 @@
     <link href="http://yoursite.com/2020/04/17/MySQL%E7%B4%A2%E5%BC%95/"/>
     <id>http://yoursite.com/2020/04/17/MySQL%E7%B4%A2%E5%BC%95/</id>
     <published>2020-04-17T09:00:42.000Z</published>
-    <updated>2020-04-17T09:01:47.678Z</updated>
+    <updated>2020-04-21T13:39:28.009Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="MySQL" scheme="http://yoursite.com/categories/MySQL/"/>
     
     
   </entry>
