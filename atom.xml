@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://bwangll.github.io/"/>
   <updated>2020-04-21T13:50:45.642Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://bwangll.github.io/</id>
   
   <author>
     <name>bwang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>String和StringBuffer、StringBuilder</title>
-    <link href="http://yoursite.com/2020/04/21/String%E5%92%8CStringBuffer%E3%80%81StringBuilder/"/>
-    <id>http://yoursite.com/2020/04/21/String%E5%92%8CStringBuffer%E3%80%81StringBuilder/</id>
+    <link href="https://bwangll.github.io/2020/04/21/String%E5%92%8CStringBuffer%E3%80%81StringBuilder/"/>
+    <id>https://bwangll.github.io/2020/04/21/String%E5%92%8CStringBuffer%E3%80%81StringBuilder/</id>
     <published>2020-04-21T13:17:39.000Z</published>
     <updated>2020-04-21T13:50:45.642Z</updated>
     
@@ -35,15 +35,15 @@
     </summary>
     
     
-      <category term="JavaSE" scheme="http://yoursite.com/categories/JavaSE/"/>
+      <category term="JavaSE" scheme="https://bwangll.github.io/categories/JavaSE/"/>
     
     
   </entry>
   
   <entry>
     <title>浅拷贝和深拷贝</title>
-    <link href="http://yoursite.com/2020/04/21/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
-    <id>http://yoursite.com/2020/04/21/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</id>
+    <link href="https://bwangll.github.io/2020/04/21/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    <id>https://bwangll.github.io/2020/04/21/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</id>
     <published>2020-04-21T12:45:53.000Z</published>
     <updated>2020-04-21T14:45:29.035Z</updated>
     
@@ -59,15 +59,15 @@
     </summary>
     
     
-      <category term="JavaSE" scheme="http://yoursite.com/categories/JavaSE/"/>
+      <category term="JavaSE" scheme="https://bwangll.github.io/categories/JavaSE/"/>
     
     
   </entry>
   
   <entry>
     <title>MySQL索引</title>
-    <link href="http://yoursite.com/2020/04/17/MySQL%E7%B4%A2%E5%BC%95/"/>
-    <id>http://yoursite.com/2020/04/17/MySQL%E7%B4%A2%E5%BC%95/</id>
+    <link href="https://bwangll.github.io/2020/04/17/MySQL%E7%B4%A2%E5%BC%95/"/>
+    <id>https://bwangll.github.io/2020/04/17/MySQL%E7%B4%A2%E5%BC%95/</id>
     <published>2020-04-17T09:00:42.000Z</published>
     <updated>2020-04-21T14:46:09.873Z</updated>
     
@@ -84,17 +84,17 @@
     </summary>
     
     
-      <category term="MySQL" scheme="http://yoursite.com/categories/MySQL/"/>
+      <category term="MySQL" scheme="https://bwangll.github.io/categories/MySQL/"/>
     
     
-      <category term="索引" scheme="http://yoursite.com/tags/%E7%B4%A2%E5%BC%95/"/>
+      <category term="索引" scheme="https://bwangll.github.io/tags/%E7%B4%A2%E5%BC%95/"/>
     
   </entry>
   
   <entry>
     <title>Java创建对象的几种方式</title>
-    <link href="http://yoursite.com/2020/04/17/Java%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
-    <id>http://yoursite.com/2020/04/17/Java%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</id>
+    <link href="https://bwangll.github.io/2020/04/17/Java%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>https://bwangll.github.io/2020/04/17/Java%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</id>
     <published>2020-04-17T08:28:24.000Z</published>
     <updated>2020-04-17T08:49:04.152Z</updated>
     
@@ -110,7 +110,7 @@
     </summary>
     
     
-      <category term="JavaSE" scheme="http://yoursite.com/categories/JavaSE/"/>
+      <category term="JavaSE" scheme="https://bwangll.github.io/categories/JavaSE/"/>
     
     
   </entry>
