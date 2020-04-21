@@ -245,7 +245,7 @@ public interface Cloneable {
 <li>所有叶子结点位于同一层。</li>
 </ol>
 <p>下图是一个M=4阶的B树。</p>
-<p><img src="/" class="lazyload" data-src="/.com//v2-652da92bab8be95ce041811a6e411a26_r.jpg"  alt></p>
+<p><img src="/" class="lazyload" data-src="/.io//v2-652da92bab8be95ce041811a6e411a26_r.jpg"  alt></p>
 <p>B树的搜索，从根结点开始，对结点内的关键字（有序）序列进行二分查找，如果命中则结束，否则进入查询关键字所属范围的儿子结点；重复，直到所对应的是叶子结点。</p>
 <p><strong>查找文件29的过程：</strong></p>
 <ol>
@@ -264,9 +264,9 @@ public interface Cloneable {
 <li>其搜索性能等价于在关键字全集内做一次二分查找。</li>
 </ol>
 <h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a><strong>B+树</strong></h3><p>下图是一个M=3阶的B+树。</p>
-<p><img src="/" class="lazyload" data-src="/.com//E:%5Cblog%5Csource_posts%5CMySQL%E7%B4%A2%E5%BC%95%5Cv2-03d02c75475cec7d472b50a30c02a6a9_r.jpg"  alt="preview"></p>
+<p><img src="/" class="lazyload" data-src="/.io//v2-03d02c75475cec7d472b50a30c02a6a9_r.jpg"  alt></p>
 <p>一般在数据库系统或文件系统中使用的B+Tree结构都在经典B+Tree的基础上进行了优化，增加了顺序访问指针。</p>
-<p><img src="/" class="lazyload" data-src="/.com//E:%5Cblog%5Csource_posts%5CMySQL%E7%B4%A2%E5%BC%95%5Cv2-8383049b48b3d9738dd193628cd51a15_r.jpg"  alt="preview"></p>
+<p><img src="/" class="lazyload" data-src="/.io//E:%5Cblog%5Csource_posts%5CMySQL%E7%B4%A2%E5%BC%95%5Cv2-8383049b48b3d9738dd193628cd51a15_r.jpg"  alt="preview"></p>
 <p>B+树是B树的一种变形树，总结起来，数据库索引的B+树与B树的差异在于：</p>
 <ol>
 <li>非叶子结点的子树指针与关键字个数相同。</li>
@@ -306,11 +306,11 @@ public interface Cloneable {
 <li>.MYI：用于存放表索引。</li>
 </ol>
 <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a><strong>索引</strong></h2><h3 id="主键索引"><a href="#主键索引" class="headerlink" title="主键索引"></a><strong>主键索引</strong></h3><p>MyISAM引擎使用B+树作为索引结果，叶节点的data域存放的是数据记录的地址。</p>
-<p><img src="/" class="lazyload" data-src="/.com//E:%5Cblog%5Csource_posts%5CMySQL%E7%B4%A2%E5%BC%95%5Cv2-5094f94cd876c866b7b50481956ced6f_720w.jpg"  alt="img"></p>
+<p><img src="/" class="lazyload" data-src="/.io//E:%5Cblog%5Csource_posts%5CMySQL%E7%B4%A2%E5%BC%95%5Cv2-5094f94cd876c866b7b50481956ced6f_720w.jpg"  alt="img"></p>
 <p>MyISAM索引文件和数据文件是分离的，索引文件仅保存记录所在页的指针（物理位置），通过这些地址来读取页，进而读取被索引的行。</p>
 <p>树中叶子保存的是对应行的物理位置。通过该值，存储引擎能顺利地进行回表查询，得到一行完整记录。同时，每个叶子页也保存了指向下一个叶子页的指针。从而方便叶子节点的范围遍历。</p>
 <h3 id="辅助索引"><a href="#辅助索引" class="headerlink" title="辅助索引"></a><strong>辅助索引</strong></h3><p>在MyISAM中，主键索引和辅助索引在结构上没有任何区别，只是主键索引要求key是唯一的，而辅助索引的key可以重复。</p>
-<p><img src="/" class="lazyload" data-src="/.com//E:%5Cblog%5Csource_posts%5CMySQL%E7%B4%A2%E5%BC%95%5Cv2-b3413d8464610320696b80a004ce6516_720w.jpg"  alt="img"></p>
+<p><img src="/" class="lazyload" data-src="/.io//E:%5Cblog%5Csource_posts%5CMySQL%E7%B4%A2%E5%BC%95%5Cv2-b3413d8464610320696b80a004ce6516_720w.jpg"  alt="img"></p>
 <h2 id="Innodb"><a href="#Innodb" class="headerlink" title="Innodb"></a><strong>Innodb</strong></h2><p>MySQL5.5开始支持InnoDB引擎，并将其作为默认数据库引擎。</p>
 <h3 id="磁盘存储-1"><a href="#磁盘存储-1" class="headerlink" title="磁盘存储"></a><strong>磁盘存储</strong></h3><p>Innodb有两种存储方式，共享表空间存储和多表空间存储。</p>
 <p>Innodb只有表结构文件和数据文件。</p>
@@ -321,7 +321,7 @@ public interface Cloneable {
 <li>如果使用多表空间，那么每个表都有一个表空间文件用于存储每个表的数据和索引，文件名以表名开头，以.ibd为扩展名。</li>
 </ul>
 <h2 id="索引-1"><a href="#索引-1" class="headerlink" title="索引"></a><strong>索引</strong></h2><h3 id="主键索引-1"><a href="#主键索引-1" class="headerlink" title="主键索引"></a><strong>主键索引</strong></h3><p>Innodb主键索引中，既存储了主键值，又存储了行数据。</p>
-<p><img src="/" class="lazyload" data-src="/.com//E:%5Cblog%5Csource_posts%5CMySQL%E7%B4%A2%E5%BC%95%5Cv2-d2a18d459c6b021e3fd708725e454971_720w.jpg"  alt="img"></p>
+<p><img src="/" class="lazyload" data-src="/.io//E:%5Cblog%5Csource_posts%5CMySQL%E7%B4%A2%E5%BC%95%5Cv2-d2a18d459c6b021e3fd708725e454971_720w.jpg"  alt="img"></p>
 <p><strong>辅助索引</strong></p>
 <p>对于辅助索引，InnoDB采用的方式是在叶子页中保存主键值，通过这个主键值来回表（上图）查询到一条完整记录，因此按辅助索引检索实际上进行了二次查询，效率肯定是没有按照主键检索高的。</p>
 <h2 id="Innodb与MyISAM的区别"><a href="#Innodb与MyISAM的区别" class="headerlink" title="Innodb与MyISAM的区别"></a><strong>Innodb与MyISAM的区别</strong></h2><h3 id="1-存储结构"><a href="#1-存储结构" class="headerlink" title="1. 存储结构"></a><strong>1. 存储结构</strong></h3><p>MyISAM存储表分为三个文件frm（表结构）、MYD（表数据）、MYI（表索引），而Innodb如上文所说，根据存储方式不同，存储结构不同。</p>
