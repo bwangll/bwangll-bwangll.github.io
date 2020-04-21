@@ -54,4 +54,175 @@
         <category>JavaSE</category>
       </categories>
   </entry>
+  <entry>
+    <title>浅拷贝和深拷贝</title>
+    <url>/2020/04/21/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<h1 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h1><h2 id="一、什么是浅拷贝和深拷贝"><a href="#一、什么是浅拷贝和深拷贝" class="headerlink" title="一、什么是浅拷贝和深拷贝"></a>一、什么是浅拷贝和深拷贝</h2><p>浅拷贝和深拷贝都是针对一个已有对象的操作。</p>
+<p>在 Java 中，除了<strong>基本数据类型</strong>（元类型）之外，还存在 <strong>类的实例对象</strong> 这个引用数据类型。而一般使用 『 <strong>=</strong> 』号做赋值操作的时候。对于基本数据类型，实际上是拷贝的它的值，但是对于对象而言，其实赋值的只是这个对象的引用，将原对象的引用传递过去，他们实际上还是指向的同一个对象。</p>
+<p>而浅拷贝和深拷贝就是在这个基础之上做的区分，如果在拷贝这个对象的时候，只对基本数据类型进行了拷贝，而对引用数据类型只是进行了引用的传递，而没有真实的创建一个新的对象，则认为是浅拷贝。反之，在对引用数据类型进行拷贝的时候，创建了一个新的对象，并且复制其内的成员变量，则认为是深拷贝。</p>
+<blockquote>
+<p>所谓的浅拷贝和深拷贝，只是在拷贝对象的时候，对 <strong>类的实例对象</strong> 这种引用数据类型的不同操作而已。</p>
+</blockquote>
+<p><strong>总结</strong></p>
+<ul>
+<li>浅拷贝：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝。</li>
+<li>深拷贝：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。</li>
+</ul>
+<h2 id="二、Java-中的-clone"><a href="#二、Java-中的-clone" class="headerlink" title="二、Java 中的 clone()"></a>二、Java 中的 clone()</h2><h3 id="2-1-Object-上的-clone-方法"><a href="#2-1-Object-上的-clone-方法" class="headerlink" title="2.1 Object 上的 clone() 方法"></a>2.1 Object 上的 clone() 方法</h3><p>在 Java 中，所有的 Class 都继承自 Object ，而在 Object 上，存在一个 clone() 方法，它被声明为了 <code>protected</code> ，所以我们可以在其子类中，使用它。</p>
+<p>而无论是浅拷贝还是深拷贝，都需要实现 clone() 方法，来完成操作。</p>
+<h3 id="2-2-浅拷贝示例"><a href="#2-2-浅拷贝示例" class="headerlink" title="2.2 浅拷贝示例"></a>2.2 浅拷贝示例</h3><pre><code class="Java">package vip.bwang;
+
+class Address implements Cloneable {
+    private String country;
+    private String province;
+
+    public Address(String country, String province) {
+        this.country = country;
+        this.province = province;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return (Address)super.clone();
+    }
+}
+
+class Student implements Cloneable {
+    private int age;
+    private String name;
+    private Address address;
+
+    public Student(int age, String name, Address address) {
+        this.age = age;
+        this.name = name;
+        this.address = address;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+//        Student cloned = (Student) super.clone();   //浅拷贝
+//        cloned.address = (Address) address.clone(); //在浅拷贝得对象上，对所有引用类型也进行拷贝即是深拷贝
+        return super.clone();
+    }
+}
+
+
+public class CloneDemo {
+    public static void main(String[] args) {
+        try {
+            Student stu1 = new Student(18, &quot;Sansa&quot;, new Address(&quot;China&quot;, &quot;Shanghai&quot;));
+            Student stu2 = (Student) stu1.clone();
+            System.out.println(stu1 + &quot;------&quot; + stu2);
+            System.out.println(stu1.getAddress() + &quot;------&quot; + stu2.getAddress());
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+<p><img src="/" class="lazyload" data-src="/.com//E:%5Cblog%5Csource_posts%5C%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D%5Cimage-20200421210945081.png"  alt="image-20200421210945081"></p>
+<p><strong>从结果可以看出，浅拷贝确实生成了两个不同的Student类对象，但是两个对象中引用类型address指向的是同一个Address类对象。</strong></p>
+<h3 id="2-3-深拷贝示例"><a href="#2-3-深拷贝示例" class="headerlink" title="2.3 深拷贝示例"></a>2.3 深拷贝示例</h3><pre><code class="Java">package vip.bwang;
+
+class Address implements Cloneable {
+    private String country;
+    private String province;
+
+    public Address(String country, String province) {
+        this.country = country;
+        this.province = province;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return (Address)super.clone();
+    }
+}
+
+class Student implements Cloneable {
+    private int age;
+    private String name;
+    private Address address;
+
+    public Student(int age, String name, Address address) {
+        this.age = age;
+        this.name = name;
+        this.address = address;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Student cloned = (Student) super.clone();   //浅拷贝
+        cloned.address = (Address) address.clone(); //在浅拷贝得对象上，对所有引用类型也进行拷贝即是深拷贝
+        return cloned;
+    }
+}
+
+
+public class CloneDemo {
+    public static void main(String[] args) {
+        try {
+            Student stu1 = new Student(18, &quot;Sansa&quot;, new Address(&quot;China&quot;, &quot;Shanghai&quot;));
+            Student stu2 = (Student) stu1.clone();
+            System.out.println(stu1 + &quot;------&quot; + stu2);
+            System.out.println(stu1.getAddress() + &quot;------&quot; + stu2.getAddress());
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+<p><img src="/" class="lazyload" data-src="/.com//E:%5Cblog%5Csource_posts%5C%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D%5Cimage-20200421211108856.png"  alt="image-20200421211108856"></p>
+<p><strong>从输出结果可以看出，深拷贝是在浅拷贝的基础上，对对象中的引用数据类型也进行了对象拷贝。</strong></p>
+<h2 id="三、一些思考"><a href="#三、一些思考" class="headerlink" title="三、一些思考"></a>三、一些思考</h2><p><strong>实现克隆需要实现Cloneable接口+调用java.lang.Object类中的clone方法呢？</strong></p>
+<pre><code class="Java">package java.lang;
+
+/**
+ * A class implements the &lt;code&gt;Cloneable&lt;/code&gt; interface to
+ * indicate to the {@link java.lang.Object#clone()} method that it
+ * is legal for that method to make a
+ * field-for-field copy of instances of that class.
+ * &lt;p&gt;
+ * Invoking Object&#39;s clone method on an instance that does not implement the
+ * &lt;code&gt;Cloneable&lt;/code&gt; interface results in the exception
+ * &lt;code&gt;CloneNotSupportedException&lt;/code&gt; being thrown.
+ * &lt;p&gt;
+ * By convention, classes that implement this interface should override
+ * &lt;tt&gt;Object.clone&lt;/tt&gt; (which is protected) with a public method.
+ * See {@link java.lang.Object#clone()} for details on overriding this
+ * method.
+ * &lt;p&gt;
+ * Note that this interface does &lt;i&gt;not&lt;/i&gt; contain the &lt;tt&gt;clone&lt;/tt&gt; method.
+ * Therefore, it is not possible to clone an object merely by virtue of the
+ * fact that it implements this interface.  Even if the clone method is invoked
+ * reflectively, there is no guarantee that it will succeed.
+ *
+ * @author  unascribed
+ * @see     java.lang.CloneNotSupportedException
+ * @see     java.lang.Object#clone()
+ * @since   JDK1.0
+ */
+public interface Cloneable {
+}</code></pre>
+<p><strong>Cloneable接口的作用仅仅是标记作用，实现了Cloneable接口的类，则意味着标记了该类的对象是可以做克隆操作的。Java对象要支持clone功能。但不是所有Java对象都应该可以clone，而是要让用户自己标记出哪些类是可以clone的，这是Cloneable接口的意义</strong>。</p>
+<p><strong>为什么不把clone方法定义成Cloneable接口中的抽象方法，而是定义在java.lang.Object类中呢？</strong></p>
+<p>clone()的语义有特殊性，最好是有JVM的直接支持，然后用户代码就算要自定义clone()最好也要调用JVM提供的基础实现然后再添加自己的功能（也就是大家经常简单的在clone()中先调用super.clone()的做法）。</p>
+<p>JVM要直接支持，得在API里找地方来暴露出这个支持给Java代码调用才行啊。最直观的做法就是把clone()方法的基本实现放在一个所有可以clone的类都能访问到的基类中，让可clone的类继承这一实现。</p>
+<p>但是我们不希望把clone()的基本实现放在一个特殊基类中，消耗掉Java类唯一的“基类”槽。那还能放哪里呢？干脆就放在java.lang.Object这个所有Java类的共通基类上吧。</p>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MySQL索引</title>
+    <url>/2020/04/17/MySQL%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[]]></content>
+  </entry>
 </search>
